@@ -1,9 +1,10 @@
 package server.handler;
 
 /**
- * Message queue interface for processing
+ * Message processing queue interface
  */
 public class MessageQueue<T> {
+
 
 
 }
