@@ -25,7 +25,7 @@ public class SimpleMessageSender implements MessageSender{
     }
 
     /**
-     * Working when user is sending message
+     * Working when user is sending message to all others clients
      */
     @Override
     public void sendMessageToClient(String nickname, String message, ChatInterface chatClient) throws IOException {
@@ -37,6 +37,7 @@ public class SimpleMessageSender implements MessageSender{
 
             if(!client.getNickname().equals(nickname)){
 
+                sendMessage(client,messageWrap);
 
             }
         }
@@ -44,7 +45,7 @@ public class SimpleMessageSender implements MessageSender{
     }
 
     /**
-     *
+     * Send message to chat client
      */
     @Override
     public void sendMessage(ChatClient client, String message) throws IOException {
@@ -55,6 +56,10 @@ public class SimpleMessageSender implements MessageSender{
         addMessageQueue(bodyMessage);
     }
 
+
+    /**
+     * Send last messages to chat client
+     */
     @Override
     public void sendLastMessages(ChatClient client) throws IOException {
 
