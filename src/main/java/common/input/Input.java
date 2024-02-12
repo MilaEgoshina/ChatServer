@@ -37,7 +37,7 @@ public abstract class Input<T> {
      */
     protected String getValueAfterValidation(){
 
-        String text = getInputValue(headerErrorMessage);
+        String text = getInputValue(headerWelcomeMessage);
         while (true){
 
             if(getValidator(text).validate()){

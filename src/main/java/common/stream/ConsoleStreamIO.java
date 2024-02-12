@@ -1,12 +1,15 @@
 package common.stream;
 
 
+import lombok.AllArgsConstructor;
+
 import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
  * Class for working with console-based I/O stream
  */
+@AllArgsConstructor
 public class ConsoleStreamIO implements StreamIO{
 
     Scanner scanner;
