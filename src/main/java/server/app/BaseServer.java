@@ -21,7 +21,6 @@ import server.lastmessages.LastMessages;
 import server.sender.MessageSender;
 import server.sender.SimpleMessageSender;
 
-import java.io.IOException;
 
 public class BaseServer implements Server {
 
@@ -61,6 +60,9 @@ public class BaseServer implements Server {
         // queue of requests
         requestQueue = new MessageQueueExecutor<TransportConnection>(service.getMaxThreadsResponse(),
                 service.getMaxThreadsResponse(),new RequestHandler(commands));
+
+        //listener of incoming messages
+        listener = new BaseServerListener(port,streamIO,transportFactory,requestQueue);
 
     }
 
