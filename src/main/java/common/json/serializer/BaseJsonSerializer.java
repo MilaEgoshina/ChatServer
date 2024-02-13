@@ -9,8 +9,7 @@ import java.io.IOException;
 /**
  * Base class for Json serializer implementation
  */
-public abstract class
-BaseJsonSerializer<T> implements JsonSerializer<T>{
+public abstract class BaseJsonSerializer<T> implements JsonSerializer<T>{
 
     private Class<T> clazz;
 
