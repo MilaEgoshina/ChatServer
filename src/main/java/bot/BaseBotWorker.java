@@ -13,6 +13,7 @@ import common.validate.ValidatorFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
 
 public class BaseBotWorker implements BotWorker{
 
@@ -70,8 +71,16 @@ public class BaseBotWorker implements BotWorker{
      */
     @Override
     public void startSendMessage(int timerSendMessage, int intervalSend) {
-
-
+        BotTimerTask botTimerTask = new BotTimerTask();
+        botTimerTask.setClients(clients);
+        Timer timer = new Timer(true);
+        timer.scheduleAtFixedRate(botTimerTask, 0, intervalSend);
+        try {
+            Thread.sleep(timerSendMessage);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        timer.cancel();
     }
 
     /**
