@@ -5,5 +5,5 @@ package server.handler;
  */
 public interface MessageHandler<T> {
 
-    public void handle(T message);
+    void handle(T message);
 }

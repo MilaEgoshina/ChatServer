@@ -4,7 +4,6 @@ import common.Service;
 import common.json.bodymessage.BodyMessage;
 import common.transport.TransportConnection;
 import common.transport.TransportFactory;
-import server.client.ChatClient;
 import server.client.ChatInterface;
 
 import java.io.IOException;

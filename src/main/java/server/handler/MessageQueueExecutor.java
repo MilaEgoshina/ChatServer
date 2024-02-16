@@ -9,9 +9,10 @@ import java.util.concurrent.TimeUnit;
  * Class for processing message queue via ThreadPoolExecutor
  */
 public class MessageQueueExecutor<T> implements MessageQueue<T>{
-
     ThreadPoolExecutor threadPoolExecutor;
     MessageHandler<T> messageHandler;
+
+    BlockingQueue<T> messageQueue = new LinkedBlockingQueue<>();
 
     public MessageQueueExecutor(int minThreads, int maxThreads, MessageHandler<T> messageHandler){
 
@@ -30,13 +31,20 @@ public class MessageQueueExecutor<T> implements MessageQueue<T>{
     @Override
     public void add(T message) {
 
+        messageQueue.add(message);
         //Executes the given task sometime in the future
         threadPoolExecutor.execute(new MessageHandlerRunnable(message,messageHandler));
     }
 
     @Override
     public T getNextMessage() {
-        return null;
+
+        try {
+            return messageQueue.take();
+        } catch (InterruptedException e) {
+            return null;
+        }
+
     }
 
     /**

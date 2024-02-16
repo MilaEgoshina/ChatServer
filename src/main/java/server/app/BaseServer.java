@@ -58,8 +58,8 @@ public class BaseServer implements Server {
         CommandsInterface commands = getCommands(messageSender,chatInterface);
 
         // queue of requests
-        requestQueue = new MessageQueueExecutor<TransportConnection>(service.getMaxThreadsResponse(),
-                service.getMaxThreadsResponse(),new RequestHandler(commands));
+        requestQueue = new MessageQueueExecutor<TransportConnection>(service.getMaxThreadsRequest(),
+                service.getMaxThreadsRequest(),new RequestHandler(commands));
 
         //listener of incoming messages
         listener = new BaseServerListener(port,streamIO,transportFactory,requestQueue);

@@ -33,7 +33,7 @@ public class Service extends BaseService<Service> {
         this.maxCountConnections = Integer.parseInt(properties.getProperty("maxCountConnections"));
         this.lastMessagesLength = Integer.parseInt(properties.getProperty("lastMessagesLength"));
         this.maxThreadsRequest = Integer.parseInt(properties.getProperty("maxThreadsRequest"));
-        this.maxThreadsResponse = Integer.parseInt(properties.getProperty("maxThreadsRequest"));
+        this.maxThreadsResponse = Integer.parseInt(properties.getProperty("maxThreadsResponse"));
         this.lineSeparator = properties.getProperty("lineSeparator");
     }
 
