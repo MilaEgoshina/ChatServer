@@ -31,7 +31,7 @@ public class LoginCommand extends BaseCommand{
 
         Status status = chatInterface.containsUser(nickname) ? Status.SUCCESS : Status.ERROR;
         //check if there is client with such name in the chat
-        if(status == Status.SUCCESS){
+        if(status != Status.SUCCESS){
 
             ChatClient client = new ChatClient(nickname,ip,port);
             messageSender.sendLastMessages(client);
