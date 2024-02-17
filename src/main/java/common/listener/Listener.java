@@ -2,7 +2,7 @@ package common.listener;
 
 
 /**
- * Server - listener interface
+ * Interface to listen for a new coming connections
  */
 public interface Listener {
 

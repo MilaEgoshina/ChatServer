@@ -46,7 +46,7 @@ public abstract class BaseListener extends Thread implements Listener{
 
         }catch (IOException e){
 
-            System.err.println("Ошибка при получении сообщения");
+            System.err.println("Error receiving message");
             e.printStackTrace();
         }
 
