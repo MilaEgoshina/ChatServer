@@ -28,6 +28,7 @@ public class MessageCommand extends BaseCommand{
 
         Status status = Status.SUCCESS;
         String text = bodyMessage.getText();
+        //first we check user commands
         if(commands.contains(text)){
             Command command = commands.getByName(text);
             command.execute(bodyMessage);
