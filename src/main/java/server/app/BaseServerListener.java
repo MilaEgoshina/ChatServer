@@ -9,6 +9,9 @@ import server.handler.MessageQueue;
 
 import java.io.IOException;
 
+/**
+ * Class - listener for incoming messages
+ */
 public class BaseServerListener extends BaseListener implements Listener {
 
     MessageQueue<TransportConnection> requestQueue;
