@@ -18,7 +18,7 @@ public class BaseClient implements Client {
     StreamIO streamIO; //interface for input - output processing
     Listener listener; //listener for input messages from thread
     MessageSender messageSender;
-    boolean stopped = false; // indicator of whether client is working or nor
+    boolean stopped = false; // indicator of whether client is working or not
 
 
     //parameters of current client
