@@ -17,27 +17,23 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-
-        StreamIO streamIO = new ConsoleStreamIO(new Scanner(System.in),System.out);
+        StreamIO streamIO = new ConsoleStreamIO(new Scanner(System.in), System.out);
         TransportFactory transportFactory = new TcpSocketTransportFactory();
 
-        InputWorker inputWorker = new InputWorker(streamIO,transportFactory);
+        InputWorker inputWorker = new InputWorker(streamIO, transportFactory);
         String ipServer = inputWorker.getIpServer();
         int portToServer = inputWorker.getPortToServer();
         int portClient = inputWorker.getPortClient();
 
-        MessageSender messageSender = new BaseMessageSender(ipServer,portToServer,transportFactory);
-        Listener listener = new BaseClientListener(portClient,streamIO,transportFactory);
+        MessageSender messageSender = new BaseMessageSender(transportFactory, ipServer, portToServer);
+        Listener listener = new BaseClientListener(portClient, streamIO, transportFactory);
 
-        try{
-
-            Client client = new BaseClient(streamIO, listener,messageSender,portClient);
-            String nickname = inputWorker.getNickName("Please, entry your nickname:");
-            while (!client.login(nickname)){
-
-                nickname = inputWorker.getNickName("This name is already used. Please, enter other one");
+        try {
+            Client client = new BaseClient(portClient, messageSender, streamIO, listener);
+            String nickName = inputWorker.getNickName("Введите свое имя");
+            while (client.login(nickName)) {
+                nickName = inputWorker.getNickName("Это имя уже используется. Введите другое");
             }
-
             client.start();
         } catch (IOException e) {
             e.printStackTrace();

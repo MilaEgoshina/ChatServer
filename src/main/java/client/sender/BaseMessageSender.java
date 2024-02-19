@@ -18,10 +18,10 @@ public class BaseMessageSender implements MessageSender{
     private TransportFactory transportFactory;
     private JsonSerializer<BodyMessage> jsonSerializer;
 
-    public BaseMessageSender(String ipServer, int serverPort, TransportFactory transportFactory) {
+    public BaseMessageSender(TransportFactory transportFactory, String ipServer, int serverPort) {
+        this.transportFactory = transportFactory;
         this.ipServer = ipServer;
         this.serverPort = serverPort;
-        this.transportFactory = transportFactory;
         this.jsonSerializer = new BodyMessageJsonSerializer();
     }
 

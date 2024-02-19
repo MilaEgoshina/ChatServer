@@ -17,7 +17,7 @@ public class BotService extends BaseService<BotService> {
     protected BotService() {
         super("src/main/resources/bot.properties");
 
-        ipServer = properties.getProperty("ipSever");
+        ipServer = properties.getProperty("ipServer");
         portServer = Integer.parseInt(properties.getProperty("portServer"));
         countUser = Integer.parseInt(properties.getProperty("countUser"));
         startPort = Integer.parseInt(properties.getProperty("startPort"));

@@ -25,11 +25,11 @@ public class BaseClient implements Client {
     int clientPort;
     String nickname;
 
-    public BaseClient(StreamIO streamIO, Listener listener, MessageSender messageSender, int clientPort) {
+    public BaseClient(int clientPort, MessageSender messageSender, StreamIO streamIO, Listener listener) {
+        this.clientPort = clientPort;
+        this.messageSender = messageSender;
         this.streamIO = streamIO;
         this.listener = listener;
-        this.messageSender = messageSender;
-        this.clientPort = clientPort;
     }
 
     /**

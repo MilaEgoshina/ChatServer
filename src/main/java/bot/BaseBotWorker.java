@@ -48,9 +48,9 @@ public class BaseBotWorker implements BotWorker{
             int port = startPort + 1;
             if(ValidatorFactory.getNotUsedPortValidation(String.valueOf(port),transportFactory).validate()){
 
-                MessageSender messageSender = new BaseMessageSender(ipServer, portServer, transportFactory);
+                MessageSender messageSender = new BaseMessageSender(transportFactory, ipServer, portServer);
                 Listener listener = new BaseClientListener(port, streamIO, transportFactory);
-                Client client = new BaseClient(streamIO,listener,messageSender,port);
+                Client client = new BaseClient(port, messageSender, streamIO, listener);
                 try {
                     if(client.login(String.format("User_%s", i))){
 
