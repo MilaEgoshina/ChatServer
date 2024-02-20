@@ -13,7 +13,6 @@ import static org.mockito.Mockito.verify;
 public class ExitCommandTest {
 
     @Test
-    //В команде должен быть выполнен определенный набор методов объектов
     public void testExecute() throws Exception {
         MessageSender messageSender = mock(MessageSender.class);
         ChatInterface chatClients = mock(ChatInterface.class);
@@ -28,7 +27,6 @@ public class ExitCommandTest {
     }
 
     @Test
-    //имя команды не должно быть пустым
     public void testGetName_NotEmpty() throws Exception {
         Command command = CommandFactory.getExitCommand(null, null);
 
@@ -37,7 +35,6 @@ public class ExitCommandTest {
     }
 
     @Test
-    //описание команды не должно быть пустым
     public void testGetDescription() throws Exception {
         Command command = CommandFactory.getExitCommand(null, null);
 
