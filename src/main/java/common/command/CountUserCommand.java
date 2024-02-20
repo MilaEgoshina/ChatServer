@@ -2,6 +2,7 @@ package common.command;
 
 import common.enums.Status;
 import common.json.bodymessage.BodyMessage;
+import lombok.EqualsAndHashCode;
 import server.client.ChatClient;
 import server.client.ChatInterface;
 import server.sender.MessageSender;
@@ -12,6 +13,7 @@ import java.io.IOException;
 /**
  * Class for user command COUNT_USERS
  */
+@EqualsAndHashCode
 public class CountUserCommand extends BaseCommand{
 
 
