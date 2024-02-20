@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 public class ResponseHandlerTest {
 
     @Test
-    //должен создаться TransportConnection и вызваться метод send, все это по параметрам  BodyMessage
+    //in this test we should create TransportConnection and invoke send(String text) method with using BodyMessage - class parameters
     public void testHandle() throws Exception {
         BodyMessage bodyMessage = MessageFactory.createBodyMessage("EXIT","Alex","Bay","127.0.0.1",0);
         TransportFactory transportFactory = mock(TransportFactory.class);
@@ -33,7 +33,7 @@ public class ResponseHandlerTest {
     }
 
     @Test
-    //При ошибке соединения с пользователем, пользователь из списка должен удалиться
+    //If there is a connection error with the user, the user must be removed from the list
     public void testHandle_Exception() throws Exception {
         BodyMessage bodyMessage = MessageFactory.createBodyMessage("EXIT","Alex","Bay","127.0.0.1",0);
         TransportFactory transportFactory = new TcpSocketTransportFactory();

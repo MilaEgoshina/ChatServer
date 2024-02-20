@@ -4,6 +4,10 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * Test for checking client class
+ * Value of setters should be equal to getters
+ */
 public class ChatClientTest {
 
     ChatClient chatClient;

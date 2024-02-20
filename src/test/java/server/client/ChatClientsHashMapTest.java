@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ChatClientsHashMapTest {
 
     @Test
-    //после очистки коллекции, размер ждолжен быть ноль
+    //after cleaning the collection, its size should be 0
     public void testClear_AddOneClear_SizeZeroReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex","",0));
@@ -17,7 +17,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //после добавления юзера и его же удаления размер коллекции должен быть ноль
     public void testRemoveUser_AddOneRemoveOne_SizeZeroReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex", "", 0));
@@ -28,7 +27,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //после добавления одно элемента размер коллекции должен быть равен одному
     public void testAddUser_One_SizeOneReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex","",0));
@@ -37,7 +35,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //имя Alex должно найтись в списке
     public void testContainsUser_Alex_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex", "", 0));
@@ -48,7 +45,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //имя abc не должно найтись в списке
     public void testContainsUser_abc_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex", "", 0));
@@ -57,7 +53,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //возвращаемый объект не должен быть пусто
     public void testGetUser_Alex_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex", "", 0));
@@ -68,7 +63,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //возвращаемый объект не должен быть пусто
     public void testGetUser_abc_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
         chatClients.addUser(new ChatClient("Alex", "", 0));
@@ -79,7 +73,6 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //по умолчанию размер должен быть ноль
     public void testGetCountUser_Default_SizeZeroReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
 
@@ -87,7 +80,7 @@ public class ChatClientsHashMapTest {
     }
 
     @Test
-    //размер самого объекта и возвращаемой коллекции должен быть один
+    // the size of the object itself and the returned collection must be the same
     public void testGetUsers_EqualSizes_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
 

@@ -6,7 +6,6 @@ import org.junit.Test;
 public class CircularFifoBufferLastMessagesTest {
 
     @Test
-    //после очистки коллекции, размер ждолжен быть ноль
     public void testClear_AddOneClear_SizeZeroReturned() throws Exception {
         LastMessages lastMessages = new CircularFifoBufferLastMessages(100);
         lastMessages.add("asd");
@@ -17,7 +16,6 @@ public class CircularFifoBufferLastMessagesTest {
     }
 
     @Test
-    //после добавления одно элемента размер коллекции должен быть равен одному
     public void testAdd_One_SizeOneReturned() throws Exception {
         LastMessages lastMessages = new CircularFifoBufferLastMessages(100);
 
@@ -27,7 +25,6 @@ public class CircularFifoBufferLastMessagesTest {
     }
 
     @Test
-    //после добавления трех элементов размер коллекции должен быть равен двум, так как это максимум
     public void testAdd_Three_SizeTwoReturned() throws Exception {
         LastMessages lastMessages = new CircularFifoBufferLastMessages(2);
 
@@ -39,7 +36,6 @@ public class CircularFifoBufferLastMessagesTest {
     }
 
     @Test
-    //Коллекция должна вернуться такая же как сам объект
     public void testGetLastMessages_AddTwoConcatEqual_TrueReturned() throws Exception {
         LastMessages lastMessages = new CircularFifoBufferLastMessages(2);
         lastMessages.add("1");
