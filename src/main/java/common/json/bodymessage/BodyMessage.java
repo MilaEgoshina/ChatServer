@@ -13,7 +13,7 @@ public class BodyMessage {
 
     private String command;
     private String nickname;
-    private String ip;
     private String text;
+    private String ip;
     private int port;
 }
