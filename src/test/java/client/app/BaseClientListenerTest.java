@@ -1,6 +1,5 @@
-package client;
+package client.app;
 
-import client.app.BaseClientListener;
 import common.Service;
 import common.listener.Listener;
 import common.stream.StreamIO;
@@ -13,8 +12,8 @@ import static org.mockito.Mockito.*;
 
 public class BaseClientListenerTest {
 
+    //a specific set of methods must be called + test printed
     @Test
-    //определенный набор методов должен быть вызван + выведено test
     public void testRun() throws Exception {
         StreamIO streamIO = mock(StreamIO.class);
         TransportFactory transportFactory = mock(TransportFactory.class);

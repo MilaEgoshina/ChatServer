@@ -1,6 +1,6 @@
-package client;
+package client.app;
 
-import client.app.BaseClient;
+import client.Client;
 import client.sender.MessageSender;
 import common.enums.CommandMessages;
 import common.json.bodymessage.BodyMessage;
@@ -17,12 +17,14 @@ public class BaseClientTest {
     StreamIO streamIO;
     MessageSender messageSender;
     Listener listener;
+    BodyMessage bodyMessage;
 
     @Before
     public void setUp() throws Exception {
         streamIO = mock(StreamIO.class);
         messageSender = mock(MessageSender.class);
         listener = mock(Listener.class);
+        bodyMessage = mock(BodyMessage.class);
     }
 
     @Test
@@ -35,7 +37,7 @@ public class BaseClientTest {
 
         verify(listener).setDaemon(true);
         verify(listener).start();
-        verify(messageSender).sendMessage(any(BodyMessage.class));
+        verify(messageSender,atLeastOnce()).sendMessage(any(BodyMessage.class));
     }
 
     @Test

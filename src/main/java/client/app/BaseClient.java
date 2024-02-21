@@ -52,6 +52,7 @@ public class BaseClient implements Client {
                 }
                 sendMessage(message);
             }
+            logoutAndStop();
         } catch (IOException e) {
             e.printStackTrace();
             System.err.println("Losing connection to the server");

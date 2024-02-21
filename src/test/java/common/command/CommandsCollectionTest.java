@@ -63,7 +63,6 @@ public class CommandsCollectionTest {
     }
 
     @Test
-    //имя abc не должно найтись в списке
     public void testContains_abc_FalseReturned() throws Exception {
         CommandsInterface commands = new CommandsCollection();
 
