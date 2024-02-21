@@ -52,9 +52,11 @@ public class TcpSocketTransportListenerTest {
         if (transportListener != null) transportListener.close();
     }
 
+    /**
+     * Start the listener and client to connect
+     * Accept of listener must receive a non-empty object and type TcpSocketTransportConnection
+     */
     @Test
-    //запускаем слушателя и клиент для подключения
-    //accept слушателя должен получить не пустой объект и тип TcpSocketTransportConnection
     public void testAccept() throws Exception {
         thread = getThread();
         thread.start();
@@ -66,7 +68,7 @@ public class TcpSocketTransportListenerTest {
     }
 
     @Test(expected = SocketException.class)
-    //после закрытия сокета, попытка получить подключение должна выдать ошибку SocketException
+    //after closing socket, trying to get a connection should throw a SocketException error
     public void testClose() throws Exception {
         transportListener.close();
         transportListener.accept();
