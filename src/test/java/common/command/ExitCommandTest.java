@@ -1,5 +1,6 @@
 package common.command;
 
+import common.Service;
 import common.json.bodymessage.BodyMessage;
 import junit.framework.Assert;
 import org.junit.Test;
@@ -7,8 +8,7 @@ import server.client.ChatInterface;
 import server.sender.MessageSender;
 
 import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
 public class ExitCommandTest {
 
@@ -23,7 +23,8 @@ public class ExitCommandTest {
 
         verify(bodyMessage).getNickname();
         verify(chatClients).removeUser(eq(bodyMessage.getNickname()));
-        verify(messageSender).sendMessageToClient(anyString(), anyString(), any(ChatInterface.class));
+        verify(messageSender).sendMessageToClient(eq(bodyMessage.getNickname()),
+                eq(Service.getInstance().getGoodbyeMessageForAll()), eq(chatClients));
     }
 
     @Test

@@ -2,39 +2,34 @@ package common.command;
 
 import common.json.bodymessage.BodyMessage;
 import junit.framework.Assert;
-import server.client.ChatClient;
+import org.junit.Test;
 import server.client.ChatInterface;
 import server.sender.MessageSender;
-import org.junit.Test;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
-public class CountUserCommandTest {
+public class MessageCommandTest {
 
     @Test
-    //The command must execute a specific set of object methods
     public void testExecute() throws Exception {
+        CommandsInterface commands = mock(CommandsInterface.class);
         MessageSender messageSender = mock(MessageSender.class);
         ChatInterface chatClients = mock(ChatInterface.class);
         BodyMessage bodyMessage = mock(BodyMessage.class);
-        ChatClient chatClient = mock(ChatClient.class);
 
-        when(chatClients.getUser(eq(bodyMessage.getNickname()))).thenReturn(chatClient);
-        when(chatClients.countUsers()).thenReturn(0);
-
-        Command command = CommandFactory.getCountUserCommand(messageSender, chatClients);
+        Command command = CommandFactory.getMessageCommand(messageSender,chatClients,commands);
+        when(bodyMessage.getText()).thenReturn("Test Message");
         command.execute(bodyMessage);
 
-        //verify(bodyMessage).getNickname();
-        verify(chatClients).getUser(eq(bodyMessage.getNickname()));
-        verify(chatClients).countUsers();
-        verify(messageSender).sendMessage(any(ChatClient.class), anyString());
+        verify(bodyMessage).getText();
+        verify(messageSender).sendMessageToClient(eq(bodyMessage.getNickname()), anyString(), any(ChatInterface.class));
     }
+
 
     @Test
     public void testGetName_NotEmpty() throws Exception {
-        Command command = CommandFactory.getCountUserCommand(null, null);
+        Command command = CommandFactory.getMessageCommand(null, null, null);
 
         Assert.assertNotNull(command.getName());
         Assert.assertTrue(command.getName().length() > 0);
@@ -42,7 +37,7 @@ public class CountUserCommandTest {
 
     @Test
     public void testGetDescription() throws Exception {
-        Command command = CommandFactory.getCountUserCommand(null, null);
+        Command command = CommandFactory.getMessageCommand(null, null, null);
 
         Assert.assertNotNull(command.getDescription());
         Assert.assertTrue(command.getDescription().length() > 0);
