@@ -58,7 +58,7 @@ This program depends on Java version 11 or higher. If you notice that this softw
 
 ## Documentation
 
-Please, if you want to see the full documentation for this project, open it in the docs package - [index.html](https://github.com/MilaEgoshina/pet-registry-system/blob/main/docs/index.html) file.
+Please, if you want to see the full documentation for this project, download docs package and open [index.html](https://github.com/MilaEgoshina/pet-registry-system/blob/main/docs/index.html) file.
 
 ## Running the tests
 
