@@ -50,7 +50,7 @@ java Main
 
 ## Deployment
 
-You can download and use **runConfigurations** package. In this package there is a ChatDemo.xml file which automatically run application with all configurations.
+You can download and use [runConfigurations](https://github.com/MilaEgoshina/ChatServer/tree/main/runConfigurations) package. In this package there is a ChatDemo.xml file which automatically run application with all configurations.
 
 ## Dependencies
 
