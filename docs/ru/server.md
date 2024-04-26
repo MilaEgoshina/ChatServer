@@ -4,27 +4,27 @@
 
 Содержит два класса:
 
-•	ChatClient – содержит никнейм, порт и IP - address
+•	**ChatClient** – содержит никнейм, порт и IP - address
 
-•	ChatClientsHashMap – (реализация интерфейса ChatInterface) операции добавления, удаления клиентов из hashmap + проверка, есть ли такой клиент в коллекции, получение коллекции всех пользователей и подсчет кол-ва клиентов в коллекции
+•	**ChatClientsHashMap** – (реализация интерфейса ChatInterface) операции добавления, удаления клиентов из hashmap + проверка, есть ли такой клиент в коллекции, получение коллекции всех пользователей и подсчет кол-ва клиентов в коллекции
 
 Один интерфейс:
 
-•	ChatInterface – интерфейс для работы с коллекцией клиентов
+•	**ChatInterface** – интерфейс для работы с коллекцией клиентов
 
 ## **Пакет handler:**
 
 **Интерфейсы:**
 
-•	MessageHandler <T> – обработчик сообщений, содержит один метод для имплементации handle(T message)
+•	**MessageHandler <T>** – обработчик сообщений, содержит один метод для имплементации handle(T message)
 
-•	MessageQueue<T> - обработчик сообщений в очереди
+•	**MessageQueue<T>** - обработчик сообщений в очереди
 
-•	HandleThread – предназначен для имплементации обработки сообщений в многопоточной среде.
+•	**HandleThread** – предназначен для имплементации обработки сообщений в многопоточной среде.
 
 **Классы:**
 
-•	MessageQueueExecutor<T> implements MessageQueue<T> - класс для обработки сообщений в очереди. Содержит поля:
+•	**MessageQueueExecutor<T> implements MessageQueue<T>** - класс для обработки сообщений в очереди. Содержит поля:
 
 ```
 ThreadPoolExecutor threadPoolExecutor;
@@ -79,7 +79,7 @@ MessageHandler<T> messageHandler;
 
 **Интерфейс:**
 
-•	MessageSender - Интерфейс для работы с сообщениями клиентами. 
+•	**MessageSender** - Интерфейс для работы с сообщениями клиентами. 
 
 **Класс SimpleMessageSender implements MessageSender**
 
@@ -91,13 +91,13 @@ private LastMessages lastMessages;
 
 private MessageQueue<BodyMessage> messageQueue;
 ```
-В реализации метода sendMessageToClient(String nickname, String message, ChatInterface chatClient) – используется разбивка по отдельным “под” методам sendMessage и sendLastMessages
+В реализации метода `sendMessageToClient(String nickname, String message, ChatInterface chatClient)` – используется разбивка по отдельным “под” методам sendMessage и sendLastMessages
 
 ## Пакет app:
 
 Этот пакет является основной реализацией работы сервера. В нем содержится только два класса:
 
-•	BaseServer implements Server (интерфейс Server является базовым интерфейсом для описания поведения серверной части программы) – данный класс является основным классом – реализацией сервера и содержит такие методы как старт и стоп – сервер.
+•	**BaseServer implements Server** (интерфейс Server является базовым интерфейсом для описания поведения серверной части программы) – данный класс является основным классом – реализацией сервера и содержит такие методы как старт и стоп – сервер.
 
 Поля:
 ```
@@ -134,7 +134,7 @@ private Listener listener;
 
 ```void stop()``` – остановка сервера, прерываем класс – слушатель, закрываем все ресурсы, меняем булевый флаг об остановке сервера (stopped = true)
 
-•	BaseServerListener extends BaseListener implements Listener – это класс – слушатель входящих сообщений от клиентов.
+•	**BaseServerListener extends BaseListener implements Listener** – это класс – слушатель входящих сообщений от клиентов.
 Содержит поле:
 
 ```MessageQueue<TransportConnection> requestQueue;``` - для обработки очереди входящих подключений

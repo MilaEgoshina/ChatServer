@@ -29,7 +29,7 @@ Command getByName(String name);
 
 **КЛАССЫ:**
 
-• BaseCommand – базовый абстрактный класс для всех команд, имплементирующий интерфейс Command.
+• **BaseCommand** – базовый абстрактный класс для всех команд, имплементирующий интерфейс Command.
 
 Поля:
 ```
@@ -295,11 +295,11 @@ protected String value;
 •	**RangeNumberValidation extends BaseValidator implements ValidatorInterface** – класс для проверки на вхождение числа в заданный диапазон.
 
 Поля:
-
+```
 private int min;
 
 private int max;
-
+```
 Как раз эти поля нужны для создания ограничительного диапазона с дальнейшей проверкой.
 
 
