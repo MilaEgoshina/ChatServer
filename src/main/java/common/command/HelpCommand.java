@@ -9,12 +9,19 @@ import server.sender.MessageSender;
 import java.io.IOException;
 
 /**
- * Class for interaction with user command - HELP
+ * The HelpCommand class represents a command that displays all available chat commands to a client.
  */
 public class HelpCommand extends BaseCommand{
 
     CommandsInterface commands;
 
+    /**
+     * Constructs a HelpCommand with the given MessageSender, ChatInterface, and CommandsInterface.
+     *
+     * @param messageSender The MessageSender object for sending messages.
+     * @param chatInterface The ChatInterface managing clients in the chat.
+     * @param commands The CommandsInterface containing all chat commands.
+     */
     public HelpCommand(MessageSender messageSender, ChatInterface chatInterface,CommandsInterface commands) {
         super(messageSender, chatInterface);
         this.name = "HELP";
@@ -22,6 +29,13 @@ public class HelpCommand extends BaseCommand{
         this.commands = commands;
     }
 
+    /**
+     * Executes the HelpCommand by sending the list of available commands to the requesting client.
+     *
+     * @param bodyMessage The BodyMessage containing the command details.
+     * @return The execution status of the command (SUCCESS or ERROR).
+     * @throws IOException if an I/O error occurs during message sending.
+     */
     @Override
     public Status execute(BodyMessage bodyMessage) throws IOException {
 
@@ -31,8 +45,8 @@ public class HelpCommand extends BaseCommand{
     }
 
     /**
-     * Get command prompt text
-     * @return text with prompt
+     * Retrieves the help text containing all available commands and their descriptions.
+     * @return The formatted help text with command names and descriptions.
      */
     private String getHelpText(){
 

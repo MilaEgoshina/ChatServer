@@ -51,10 +51,6 @@ protected ChatInterface chatInterface;
 
 •	**HelpCommand extends BaseCommand** – помимо полей, унаследованных от базового класса, содержит еще поле:
 
-**CommandsInterface commands(интерфейс для работы с коллекциями команд):**
-
-Собирает название и описание всех доступных команд в чате и высылает этот список клиенту.
-
 •	**LoginCommand extends BaseCommand** – команда для авторизации пользователя. Если такого пользователя нет в коллекции клиентов, то добавляем его в коллекцию и рассылаем остальным клиентам приветственное сообщение от этого пользователя.
 
 •	**MessageCommand extends BaseCommand** - помимо полей, унаследованных от базового класса, содержит еще поле:
@@ -62,8 +58,26 @@ CommandsInterface commands(интерфейс для работы с колле�
 
 Этот класс нужен для системной отправки сообщений. В нем из сообщения (как объекта BodyMessage) берется текст и проверяется, есть ли такая команда в коллекции, и если есть, данная команда выполняется, и возвращается результат выполнения в виде статуса.
 
+**Класс CommandFactory**
+
+Класс CommandFactory предоставляет статические методы для создания различных типов команд:
+
+* static Command getCountUserCommand(MessageSender messageSender, ChatInterface chatInterface)
 
 
+* static Command getExitCommand(MessageSender messageSender, ChatInterface chatInterface)
+
+
+* static Command getHelpCommand(CommandsInterface commandsInterface, MessageSender messageSender, ChatInterface chatInterface)
+
+
+* static Command getLoginCommand(MessageSender messageSender, ChatInterface chatInterface)
+
+
+* static Command getMessageCommand(MessageSender messageSender, ChatInterface chatInterface, CommandsInterface commandsInterface)
+
+
+* static CommandsInterface getCommandsCollection()
 
 ## Пакет input:
 

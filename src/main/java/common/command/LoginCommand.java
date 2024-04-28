@@ -11,17 +11,29 @@ import server.sender.MessageSender;
 import java.io.IOException;
 
 /**
- * Class for user command - LOGIN
+ * This class represents a command to log in a client to the chat.
  */
 public class LoginCommand extends BaseCommand{
 
-
+    /**
+     * Constructor for the LoginCommand.
+     *
+     * @param messageSender The MessageSender object for sending messages.
+     * @param chatInterface The ChatInterface containing information about clients in the chat.
+     */
     public LoginCommand(MessageSender messageSender, ChatInterface chatInterface) {
         super(messageSender, chatInterface);
         this.name = CommandMessages.LOGIN.getTextCommand();
         this.description = "Log in";
     }
 
+    /**
+     * Executes the LoginCommand by logging in a client to the chat.
+     *
+     * @param bodyMessage The BodyMessage containing the login details.
+     * @return The execution status of the command.
+     * @throws IOException if an I/O error occurs during message sending.
+     */
     @Override
     public Status execute(BodyMessage bodyMessage) throws IOException {
 

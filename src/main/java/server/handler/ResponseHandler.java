@@ -20,6 +20,7 @@ public class ResponseHandler implements MessageHandler<BodyMessage>{
 
     /**
      * Constructor for ResponseHandler class.
+     *
      * @param chatInterface The interface for managing client communication in the server.
      * @param transportFactory The factory for creating TransportConnections.
      */
@@ -32,6 +33,7 @@ public class ResponseHandler implements MessageHandler<BodyMessage>{
      * Handles the outgoing response message to be sent to a client.
      * It creates a TransportConnection using the TransportFactory, and sends the response message to the client.
      * If there is an IOException, it logs an error message and removes the user from the chatInterface.
+     *
      * @param message The BodyMessage object containing the response message, IP, and port.
      */
     @Override

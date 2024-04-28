@@ -1,9 +1,9 @@
 package server.handler;
 
 /**
- * Class - implementation of message processing as a usual Thread
+ * Class - implementation of message processing as a usual Thread.
  */
-public class SimpleHandleThread<T> extends Thread implements  HandleThread{
+public class SimpleHandleThread<T> extends Thread implements HandleThread{
 
     private MessageQueue<T> queue;
 
@@ -11,6 +11,12 @@ public class SimpleHandleThread<T> extends Thread implements  HandleThread{
 
     MessageHandler<T> messageHandler;
 
+    /**
+     * Constructor for SimpleHandleThread.
+     *
+     * @param messageQueue The message queue for storing incoming messages.
+     * @param messageHandler The message handler to process the messages.
+     */
     public SimpleHandleThread(MessageQueue<T> messageQueue, MessageHandler<T> messageHandler){
 
         this.queue = messageQueue;
@@ -18,7 +24,9 @@ public class SimpleHandleThread<T> extends Thread implements  HandleThread{
     }
 
     /**
-     * @return true if the process is working
+     * Check if the thread is currently processing messages.
+     *
+     * @return true if the thread is actively processing messages.
      */
     @Override
     public boolean isProcessing() {
@@ -26,7 +34,7 @@ public class SimpleHandleThread<T> extends Thread implements  HandleThread{
     }
 
     /**
-     * Kill the current thread
+     * Stop the execution of the current thread.
      */
     @Override
     public void killThread() {
@@ -34,7 +42,8 @@ public class SimpleHandleThread<T> extends Thread implements  HandleThread{
     }
 
     /**
-     * Thread processing
+     * Main processing loop of the thread.
+     * It continuously retrieves and processes messages from the message queue until interrupted.
      */
     public void run(){
 

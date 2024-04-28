@@ -6,7 +6,8 @@ import java.util.Map;
 
 
 /**
- * Class for interaction with collection of commands
+ * The CommandsCollection class implements the CommandsInterface using a HashMap to store commands.
+ * This class provides methods to add, remove, and retrieve commands, as well as check for the presence of a command.
  */
 public class CommandsCollection implements CommandsInterface{
 
@@ -14,7 +15,8 @@ public class CommandsCollection implements CommandsInterface{
 
 
     /**
-     * Add a new command to the collection
+     * Adds a command to the collection using the command's name as the key and the command object as the value.
+     * @param command The command to be added to the collection.
      */
     @Override
     public void add(Command command) {
@@ -24,7 +26,8 @@ public class CommandsCollection implements CommandsInterface{
     }
 
     /**
-     * Delete command from collection by its name
+     * Removes a command from the collection using its name as the key.
+     * @param name The name of the command to be removed.
      */
     @Override
     public void remove(String name) {
@@ -33,7 +36,8 @@ public class CommandsCollection implements CommandsInterface{
     }
 
     /**
-     * Count numbers of commands
+     * Returns the number of commands stored in the collection.
+     * @return The size of the collection.
      */
     @Override
     public int size() {
@@ -41,7 +45,8 @@ public class CommandsCollection implements CommandsInterface{
     }
 
     /**
-     * Get all commands collection
+     * Returns a collection containing all the commands stored in the collection.
+     * @return A Collection of all commands.
      */
     @Override
     public Collection<Command> getAllCommands() {
@@ -49,7 +54,10 @@ public class CommandsCollection implements CommandsInterface{
     }
 
     /**
-     * Check if there is such command in collection
+     * Checks if a command with the specified name exists in the collection.
+     *
+     * @param name The name of the command to check for.
+     * @return true if the collection contains the command, false otherwise.
      */
     @Override
     public boolean contains(String name) {
@@ -57,7 +65,10 @@ public class CommandsCollection implements CommandsInterface{
     }
 
     /**
-     * Get command by its name
+     * Retrieves a command from the collection based on its name.
+     *
+     * @param name The name of the command to retrieve.
+     * @return The command object corresponding to the specified name.
      */
     @Override
     public Command getByName(String name) {

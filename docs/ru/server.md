@@ -60,6 +60,12 @@ private TransportFactory transportFactory;
 В классе реализуется один метод `void handle(BodyMessage message)` в рамках интерфейса MessageHandler. Этот метод обрабатывает исходящее ответное сообщение для отправки клиенту. Он создает TransportConnection с помощью TransportFactory и отправляет ответное сообщение клиенту.
 Если возникает исключение IOException, оно регистрирует сообщение об ошибке и удаляет пользователя из интерфейса чата.
 
+**Класс MessageHandlerRunnable<T> implements Runnable**
+
+Работоспособная реализация для обработки сообщения с помощью MessageHandler.
+Этот класс предоставляет способ обработки сообщения путем его передачи MessageHandler в отдельном потоке.
+
+В классе реализуется метод `void run()` для обработки сообщения с помощью MessageHandler.
 
 **Класс SimpleHandleThread<T> extends Thread implements  HandleThread:**
 
@@ -76,11 +82,11 @@ MessageHandler<T> messageHandler;
 
 ## Пакет sender:
 
-Обработка сообщений от клиентов
+Обработка сообщений от клиентов.
 
 **Интерфейс:**
 
-•	**MessageSender** - Интерфейс для работы с сообщениями клиентами. 
+•	**MessageSender** - Интерфейс для отправки сообщений клиентам в приложении чата. 
 
 **Класс SimpleMessageSender implements MessageSender**
 
@@ -92,7 +98,7 @@ private LastMessages lastMessages;
 
 private MessageQueue<BodyMessage> messageQueue;
 ```
-В реализации метода `sendMessageToClient(String nickname, String message, ChatInterface chatClient)` – используется разбивка по отдельным “под” методам sendMessage и sendLastMessages
+В реализации метода `sendMessageToClient(String nickname, String message, ChatInterface chatClient)` – происходит отправка сообщения от пользователя всем остальным клиентам, кроме отправителя.
 
 ## Пакет app:
 
@@ -150,5 +156,13 @@ public BaseServerListener(int portIn, StreamIO streamIO, TransportFactory transp
 }
 ```
 
-В классе переопределяется унаследованный от BaseListener абстрактный метод worker() - в нем мы записываем все приходящие на сервер соединения от пользователей в очередь.
+В классе переопределяется унаследованный от BaseListener абстрактный метод worker() - Принимает входящие соединения и добавляет их в очередь запросов на обработку.
 В очереди у нас находится список всех соединений с пользователями. 
+
+## Пакет lastmessages:
+
+**Интерфейс:**
+
+* **LastMessages** - представляет собой коллекцию последних сообщений в приложении чата.
+
+Содержит метод `Collection<String> getLastMessages()` - Возвращает коллекцию последних сообщений.

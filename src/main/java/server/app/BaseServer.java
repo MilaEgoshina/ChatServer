@@ -21,7 +21,9 @@ import server.lastmessages.LastMessages;
 import server.sender.MessageSender;
 import server.sender.SimpleMessageSender;
 
-
+/**
+ * The BaseServer class implements the Server interface and represents the core server application.
+ */
 public class BaseServer implements Server {
 
     private LastMessages lastMessages; //list of last messages
@@ -35,6 +37,13 @@ public class BaseServer implements Server {
 
     private Listener listener;
 
+    /**
+     * Constructor for BaseServer.
+     *
+     * @param port The port on which the server will listen for connections.
+     * @param streamIO The StreamIO object for handling input/output operations.
+     * @param transportFactory The TransportFactory for creating TransportConnections.
+     */
     public BaseServer(int port, StreamIO streamIO, TransportFactory transportFactory){
 
         this.streamIO = streamIO;
@@ -67,10 +76,11 @@ public class BaseServer implements Server {
     }
 
     /**
-     * Method for users commands initialization
-     * @param messageSender initialization for message sending
-     * @param chatInterface list of users
-     * @return list of system commands
+     * Get the system and client commands for the server.
+     *
+     * @param messageSender The MessageSender object for sending messages.
+     * @param chatInterface The ChatInterface for managing clients in the chat.
+     * @return The combined CommandsInterface for system and client commands.
      */
     private CommandsInterface getCommands(MessageSender messageSender, ChatInterface chatInterface){
 
