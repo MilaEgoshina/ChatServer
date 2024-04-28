@@ -9,21 +9,30 @@ import server.client.ChatInterface;
 import java.io.IOException;
 
 /**
- * Class for processing of response based on socket - connection
+ * This class is responsible for handling outgoing responses to be sent to clients.
+ * It receives a BodyMessage object containing the response message, and uses a ChatInterface
+ * and TransportFactory to create a connection and send the response to the specified client.
  */
 public class ResponseHandler implements MessageHandler<BodyMessage>{
 
     private ChatInterface chatInterface;
     private TransportFactory transportFactory;
 
+    /**
+     * Constructor for ResponseHandler class.
+     * @param chatInterface The interface for managing client communication in the server.
+     * @param transportFactory The factory for creating TransportConnections.
+     */
     public ResponseHandler(ChatInterface chatInterface, TransportFactory transportFactory) {
         this.chatInterface = chatInterface;
         this.transportFactory = transportFactory;
     }
 
     /**
-     * Parsing the message
-     * @param message
+     * Handles the outgoing response message to be sent to a client.
+     * It creates a TransportConnection using the TransportFactory, and sends the response message to the client.
+     * If there is an IOException, it logs an error message and removes the user from the chatInterface.
+     * @param message The BodyMessage object containing the response message, IP, and port.
      */
     @Override
     public void handle(BodyMessage message) {

@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 /**
- * Class - collection for working with a list of chat users via ConcurrentHashMap
+ * Class - collection for working with a list of chat users via ConcurrentHashMap.
  */
 public class ChatClientsHashMap implements ChatInterface{
 

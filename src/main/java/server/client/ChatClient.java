@@ -16,7 +16,7 @@ import lombok.Setter;
 
 public class ChatClient {
 
-    private String nickname;
-    private String ip;
-    private int port;
+    private String nickname;  // Nickname of the client.
+    private String ip;  // IP address of the client.
+    private int port;  // Port number for communication with the client.
 }

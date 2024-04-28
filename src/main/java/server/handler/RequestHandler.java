@@ -11,21 +11,30 @@ import common.transport.TransportConnection;
 import java.io.IOException;
 
 /**
- * TCP connection-based request processing class
+ * This class is responsible for handling incoming requests from a TransportConnection.
+ * It receives a message from the connection, deserializes it to a BodyMessage object,
+ * and executes the command specified in the BodyMessage using the CommandsInterface.
+ * It then sends back the status of the command execution to the client.
  */
 public class RequestHandler implements MessageHandler<TransportConnection>{
 
     private CommandsInterface commands;
     private JsonSerializer<BodyMessage> jsonSerializer;
 
+    /**
+     * Constructor for RequestHandler class.
+     * @param commands The interface containing the available commands to be executed.
+     */
     public RequestHandler(CommandsInterface commands) {
         this.commands = commands;
         this.jsonSerializer = new BodyMessageJsonSerializer();
     }
 
     /**
-     * Method for parsing the message
-     * @param transportConnection - message to parse from connection
+     * Handles the incoming request from the TransportConnection.
+     * It deserializes the received message, executes the command, and sends back the status of the command execution.
+     *
+     * @param transportConnection The connection from which the request is received.
      */
     @Override
     public void handle(TransportConnection transportConnection) {

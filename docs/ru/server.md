@@ -4,9 +4,9 @@
 
 Содержит два класса:
 
-•	**ChatClient** – содержит никнейм, порт и IP - address
+•	**ChatClient** – класс для взаимодействия с клиентом, содержит никнейм, порт и IP – address клиента.
 
-•	**ChatClientsHashMap** – (реализация интерфейса ChatInterface) операции добавления, удаления клиентов из hashmap + проверка, есть ли такой клиент в коллекции, получение коллекции всех пользователей и подсчет кол-ва клиентов в коллекции
+•	**ChatClientsHashMap** – (реализация интерфейса ChatInterface) Класс- коллекция для работы со списком клиентов в чате с помощью ConcurrentHashMap. Содержит операции добавления, удаления клиентов из hashmap + проверка, есть ли такой клиент в коллекции, получение коллекции всех пользователей и подсчет кол-ва клиентов в коллекции.
 
 Один интерфейс:
 
@@ -18,13 +18,13 @@
 
 •	**MessageHandler <T>** – обработчик сообщений, содержит один метод для имплементации handle(T message)
 
-•	**MessageQueue<T>** - обработчик сообщений в очереди
+•	**MessageQueue<T>** - интерфейс, который представляет собой очередь для хранения и получения сообщений типа T.
 
 •	**HandleThread** – предназначен для имплементации обработки сообщений в многопоточной среде.
 
 **Классы:**
 
-•	**MessageQueueExecutor<T> implements MessageQueue<T>** - класс для обработки сообщений в очереди. Содержит поля:
+•	**MessageQueueExecutor<T> implements MessageQueue<T>** - класс реализует очередь сообщений, используя ThreadPoolExecutor для одновременной обработки входящих сообщений. Сообщения добавляются в очередь и обрабатываются MessageHandler в отдельных потоках. Содержит поля:
 
 ```
 ThreadPoolExecutor threadPoolExecutor;
@@ -37,7 +37,7 @@ MessageHandler<T> messageHandler;
 
 **Класс RequestHandler implements MessageHandler<TransportConnection>:**
 
-Предназначен для обработки запроса от клиента на основе TCP соединения (TransportConnection).
+Этот класс отвечает за обработку входящих запросов от TransportConnection. Он получает сообщение от соединения, десериализует его в объект BodyMessage и выполняет команду, указанную в BodyMessage, с помощью CommandsInterface. Затем он отправляет клиенту статус выполнения команды.
 
 Поля:
 ```
@@ -49,7 +49,7 @@ private JsonSerializer<BodyMessage> jsonSerializer;
 
 **Класс ResponseHandler implements MessageHandler<BodyMessage>:**
 
-Предназначен для обработки ответов от пользователей на основе TCP – соединений.
+Этот класс отвечает за обработку исходящих ответов, отправляемых клиентам. Он получает объект BodyMessage, содержащий ответное сообщение, и использует ChatInterface и TransportFactory для создания соединения и отправки ответа указанному клиенту.
 
 Поля:
 ```
@@ -57,7 +57,8 @@ private ChatInterface chatInterface;
 
 private TransportFactory transportFactory;
 ```
-В классе реализуется один метод `void handle(BodyMessage message)` в рамках интерфейса MessageHandler. В нем создается соединение, и отправляется ответ клиенту.
+В классе реализуется один метод `void handle(BodyMessage message)` в рамках интерфейса MessageHandler. Этот метод обрабатывает исходящее ответное сообщение для отправки клиенту. Он создает TransportConnection с помощью TransportFactory и отправляет ответное сообщение клиенту.
+Если возникает исключение IOException, оно регистрирует сообщение об ошибке и удаляет пользователя из интерфейса чата.
 
 
 **Класс SimpleHandleThread<T> extends Thread implements  HandleThread:**
