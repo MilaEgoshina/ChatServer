@@ -7,23 +7,34 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Base class for working with input and value validation
+ * This class represents an abstract input class that handles user input.
+ * It provides methods for retrieving user input and validating it using a ValidatorInterface.
+ * It also contains messages for welcoming and error messages to be displayed to the user.
  */
-
 @Getter
 @Setter
 public abstract class Input<T> {
 
+    /**
+     * The text to display as a welcome message when prompting the user for input.
+     */
     String headerWelcomeMessage;
 
+    /**
+     * The text to display as an error message when the user input is invalid.
+     */
     String headerErrorMessage;
 
+    /**
+     * Used for input and output operations.
+     */
     StreamIO streamIO;
 
     /**
-     * Read value
-     * @param headerMessage
-     * @return string with message
+     * Retrieves input from the user and returns it as a string.
+     *
+     * @param headerMessage The message to display when prompting the user for input.
+     * @return The user input as a string.
      */
     protected String getInputValue(String headerMessage){
 
@@ -32,8 +43,8 @@ public abstract class Input<T> {
     }
 
     /**
-     * Do some validations and extract values
-     * @return text after validation
+     * Gets user input after validating it with the specified ValidatorInterface.
+     * @return The validated user input as a string.
      */
     protected String getValueAfterValidation(){
 
@@ -51,12 +62,16 @@ public abstract class Input<T> {
     }
 
     /**
-     * @return instance of class - validator to check values
+     * Abstract method to get the appropriate validator for the input text.
+     *
+     * @param text The user input text to be validated.
+     * @return The ValidatorInterface implementation for the input text.
      */
     protected abstract ValidatorInterface getValidator(String text);
 
     /**
-     * @return final value with definite type
+     * Abstract method to get the user input of type T.
+     * @return The user input of type T.
      */
     public abstract T getValue();
 

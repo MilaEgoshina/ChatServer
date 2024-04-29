@@ -9,13 +9,21 @@ import common.transport.TransportListener;
 import java.io.IOException;
 
 /**
- *  Listener class for incoming messages
+ * BaseListener class implements a basic listener functionality for receiving and sending messages.
+ * It extends Thread class and implements the Listener interface.
  */
 public abstract class BaseListener extends Thread implements Listener{
 
     protected TransportListener transportListener;
     protected StreamIO streamIO;
 
+    /**
+     * Constructor for BaseListener class.
+     *
+     * @param portIn the input port number to listen for incoming connections
+     * @param streamIO the StreamIO object for handling input and output streams
+     * @param transportFactory the TransportFactory object for creating a listener
+     */
     public BaseListener(int portIn, StreamIO streamIO, TransportFactory transportFactory){
 
         try {
@@ -33,7 +41,7 @@ public abstract class BaseListener extends Thread implements Listener{
     }
 
     /**
-     * Waiting for the message and sending it out
+     * Continuously waits for incoming messages and processes them using the worker method.
      */
     public void run(){
 
@@ -52,5 +60,9 @@ public abstract class BaseListener extends Thread implements Listener{
 
     }
 
+    /**
+     * Abstract method that must be implemented by subclasses to define the processing of incoming messages.
+     * @throws IOException if an error occurs while receiving or processing the message
+     */
     protected abstract void worker() throws IOException;
 }
