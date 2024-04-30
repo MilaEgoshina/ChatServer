@@ -18,7 +18,7 @@ public class BaseServerTest {
         TransportFactory transportFactory = new TcpSocketTransportFactory();
         when(streamIO.read()).thenReturn(CommandMessages.EXIT.getTextCommand());
 
-        Server server = new BaseServer(60000, streamIO, transportFactory);
+        Server server = new BaseServer(59990, streamIO, transportFactory);
         server.start();
     }
 }

@@ -26,12 +26,12 @@ public class SimpleMessageSenderTest {
     public void testSendMessageToClients() throws Exception {
         LastMessages lastMessages = new CircularFifoBufferLastMessages(2);
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex1","",0));
-        chatClients.addUser(new ChatClient("Alex2","",0));
+        chatClients.addUser(new ChatClient("Jack1","",0));
+        chatClients.addUser(new ChatClient("Jack2","",0));
         MessageQueue<BodyMessage> messageQueue = mock(MessageQueue.class);
 
         MessageSender messageSender = new SimpleMessageSender(lastMessages, messageQueue);
-        messageSender.sendMessageToClient("Alex1","Hello", chatClients);
+        messageSender.sendMessageToClient("Jack1","Hello", chatClients);
 
         Assert.assertEquals(lastMessages.getLastMessages().size(), 1);
         verify(messageQueue).add(any(BodyMessage.class));
@@ -47,7 +47,7 @@ public class SimpleMessageSenderTest {
         MessageQueue<BodyMessage> messageQueue = mock(MessageQueue.class);
 
         MessageSender messageSender = new SimpleMessageSender(lastMessages, messageQueue);
-        messageSender.sendMessage(new ChatClient("Alex1", "", 0), "Hello");
+        messageSender.sendMessage(new ChatClient("Jack1", "", 0), "Hello");
 
         verify(messageQueue).add(any(BodyMessage.class));
     }
@@ -63,7 +63,7 @@ public class SimpleMessageSenderTest {
         MessageQueue<BodyMessage> messageQueue = mock(MessageQueue.class);
 
         MessageSender messageSender = new SimpleMessageSender(lastMessages, messageQueue);
-        messageSender.sendLastMessages(new ChatClient("Alex1", "", 0));
+        messageSender.sendLastMessages(new ChatClient("Jack1", "", 0));
 
         verify(messageQueue).add(any(BodyMessage.class));
     }

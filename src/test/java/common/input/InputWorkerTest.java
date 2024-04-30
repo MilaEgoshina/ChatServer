@@ -33,13 +33,13 @@ public class InputWorkerTest {
     }
 
     @Test
-    public void testGetPortServer_Input60001EqualOutput60001_TrueReturned() throws Exception {
-        StreamIO streamIO = getStream("60001");
+    public void testGetPortServer_Input599891EqualOutput59989_TrueReturned() throws Exception {
+        StreamIO streamIO = getStream("59989");
         InputWorker inputWorker = new InputWorker(streamIO, transportFactory);
 
         int port = inputWorker.getPortServer();
 
-        Assert.assertEquals(port, 60001);
+        Assert.assertEquals(port, 59989);
     }
 
     @Test
@@ -53,32 +53,32 @@ public class InputWorkerTest {
     }
 
     @Test
-    public void testGetPortToServer_Input60001EqualOutput60001_TrueReturned() throws Exception {
-        StreamIO streamIO = getStream("60001");
+    public void testGetPortToServer_Input59989EqualOutput59989_TrueReturned() throws Exception {
+        StreamIO streamIO = getStream("59989");
         InputWorker inputWorker = new InputWorker(streamIO, transportFactory);
 
         int port = inputWorker.getPortToServer();
 
-        Assert.assertEquals(port, 60001);
+        Assert.assertEquals(port, 59989);
     }
 
     @Test
-    public void testGetPortClient_Input60001EqualOutput60001_TrueReturned() throws Exception {
-        StreamIO streamIO = getStream("60001");
+    public void testGetPortClient_Input59989EqualOutput59989_TrueReturned() throws Exception {
+        StreamIO streamIO = getStream("59989");
         InputWorker inputWorker = new InputWorker(streamIO, transportFactory);
 
         int port = inputWorker.getPortClient();
 
-        Assert.assertEquals(port, 60001);
+        Assert.assertEquals(port, 59989);
     }
 
     @Test
-    public void testGetNickName_InputAlexEqualOutputAlex_TrueReturned() throws Exception {
-        StreamIO streamIO = getStream("Alex");
+    public void testGetNickName_InputJackEqualOutputJack_TrueReturned() throws Exception {
+        StreamIO streamIO = getStream("Jack");
         InputWorker inputWorker = new InputWorker(streamIO, transportFactory);
 
         String nickName = inputWorker.getNickName("");
 
-        Assert.assertEquals(nickName, "Alex");
+        Assert.assertEquals(nickName, "Jack");
     }
 }

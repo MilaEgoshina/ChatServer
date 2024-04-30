@@ -40,7 +40,7 @@ public class TcpSocketTransportConnectionTest {
         thread = getThread();
         thread.start();
         transportConnection = new TcpSocketTransportConnection("127.0.0.1",
-                60005, Service.getInstance().getEncoding());
+                59991, Service.getInstance().getEncoding());
     }
 
     @After

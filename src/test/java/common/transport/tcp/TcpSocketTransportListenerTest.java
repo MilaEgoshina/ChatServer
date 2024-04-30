@@ -30,7 +30,7 @@ public class TcpSocketTransportListenerTest {
                 }
                 try {
                     TransportFactory transportFactory = new TcpSocketTransportFactory();
-                    transportFactory.createConnection("127.0.0.1",60000, Service.getInstance().getEncoding());
+                    transportFactory.createConnection("127.0.0.1",59990, Service.getInstance().getEncoding());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -41,7 +41,7 @@ public class TcpSocketTransportListenerTest {
     @Before
     public void setUp() throws Exception {
         TransportFactory transportFactory = new TcpSocketTransportFactory();
-        transportListener = transportFactory.createListener(60000, 1000,
+        transportListener = transportFactory.createListener(59990, 1000,
                 Service.getInstance().getEncoding());
     }
 

@@ -14,18 +14,18 @@ public class BodyMessageJsonSerializerTest {
     @Before
     public void setUp() throws Exception {
         jsonSerializer = new BodyMessageJsonSerializer();
-        bodyMessage = MessageFactory.createBodyMessage("MESSAGE", "alex", "hello", "127.0.0.1", 60000);
+        bodyMessage = MessageFactory.createBodyMessage("MESSAGE", "jack", "hello", "127.0.0.1", 59990);
     }
 
     @Test
     public void testSerialize() throws Exception {
         String result = jsonSerializer.serialize(bodyMessage);
-        Assert.assertEquals(result, "{\"command\":\"MESSAGE\",\"nickname\":\"alex\",\"text\":\"hello\",\"ip\":\"127.0.0.1\",\"port\":60000}");
+        Assert.assertEquals(result, "{\"command\":\"MESSAGE\",\"nickname\":\"jack\",\"text\":\"hello\",\"ip\":\"127.0.0.1\",\"port\":59989}");
     }
 
     @Test
     public void testDeserialize() throws Exception {
-        String object = "{\"command\":\"MESSAGE\",\"nickname\":\"alex\",\"text\":\"hello\",\"ip\":\"127.0.0.1\",\"port\":60000}";
+        String object = "{\"command\":\"MESSAGE\",\"nickname\":\"jack\",\"text\":\"hello\",\"ip\":\"127.0.0.1\",\"port\":59990}";
 
         BodyMessage bodyMessageNew = jsonSerializer.deserialize(object);
 

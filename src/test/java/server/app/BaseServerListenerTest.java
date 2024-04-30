@@ -19,12 +19,12 @@ public class BaseServerListenerTest {
         StreamIO streamIO = mock(StreamIO.class);
         TransportFactory transportFactory = mock(TransportFactory.class);
         TransportListener transportListener = mock(TransportListener.class);
-        when(transportFactory.createListener(60001, Service.getInstance().getMaxCountConnections(),
+        when(transportFactory.createListener(59989, Service.getInstance().getMaxCountConnections(),
                 Service.getInstance().getEncoding())).thenReturn(transportListener);
         TransportConnection transportConnection = mock(TransportConnection.class);
         when(transportListener.accept()).thenReturn(transportConnection);
 
-        Listener listener = new BaseServerListener(60001, streamIO, transportFactory, messageQueue);
+        Listener listener = new BaseServerListener(59989, streamIO, transportFactory, messageQueue);
         listener.setDaemon(true);
         listener.start();
         Thread.sleep(1000);

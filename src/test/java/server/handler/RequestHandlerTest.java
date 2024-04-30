@@ -22,7 +22,7 @@ public class RequestHandlerTest {
         Command systemCommand = mock(Command.class);
         MessageHandler<TransportConnection> messageHandler = new RequestHandler(commands);
 
-        when(transportConnection.receive()).thenReturn("{\"command\":\"MESSAGE\",\"nickname\":\"alex\",\"text\":\"hello\",\"ip\":\"127.0.0.1\",\"port\":60000}");
+        when(transportConnection.receive()).thenReturn("{\"command\":\"MESSAGE\",\"nickname\":\"jack\",\"text\":\"hello\",\"ip\":\"127.0.0.1\",\"port\":59990}");
         when(commands.contains(anyString())).thenReturn(true);
         when(commands.getByName(anyString())).thenReturn(systemCommand);
         when(systemCommand.execute(any(BodyMessage.class))).thenReturn(Status.SUCCESS);

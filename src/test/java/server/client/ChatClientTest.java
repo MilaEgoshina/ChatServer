@@ -19,9 +19,9 @@ public class ChatClientTest {
 
     @Test
     public void testSetGetNickName() throws Exception {
-        chatClient.setNickname("alex");
+        chatClient.setNickname("jack");
 
-        Assert.assertEquals(chatClient.getNickname(), "alex");
+        Assert.assertEquals(chatClient.getNickname(), "jack");
     }
 
     @Test
@@ -33,8 +33,8 @@ public class ChatClientTest {
 
     @Test
     public void testSetGetPort() throws Exception {
-        chatClient.setPort(60000);
+        chatClient.setPort(59990);
 
-        Assert.assertEquals(chatClient.getPort(), 60000);
+        Assert.assertEquals(chatClient.getPort(), 59990);
     }
 }

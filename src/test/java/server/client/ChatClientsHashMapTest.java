@@ -9,7 +9,7 @@ public class ChatClientsHashMapTest {
     //after cleaning the collection, its size should be 0
     public void testClear_AddOneClear_SizeZeroReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex","",0));
+        chatClients.addUser(new ChatClient("Jack","",0));
 
         chatClients.clear();
 
@@ -19,9 +19,9 @@ public class ChatClientsHashMapTest {
     @Test
     public void testRemoveUser_AddOneRemoveOne_SizeZeroReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex", "", 0));
+        chatClients.addUser(new ChatClient("Jack", "", 0));
 
-        chatClients.removeUser("Alex");
+        chatClients.removeUser("Jack");
 
         Assert.assertEquals(chatClients.countUsers(), 0);
     }
@@ -29,7 +29,7 @@ public class ChatClientsHashMapTest {
     @Test
     public void testAddUser_One_SizeOneReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex","",0));
+        chatClients.addUser(new ChatClient("Jack","",0));
 
         Assert.assertEquals(chatClients.countUsers(), 1);
     }
@@ -37,9 +37,9 @@ public class ChatClientsHashMapTest {
     @Test
     public void testContainsUser_Alex_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex", "", 0));
+        chatClients.addUser(new ChatClient("Jack", "", 0));
 
-        Boolean result = chatClients.containsUser("Alex");
+        Boolean result = chatClients.containsUser("Jack");
 
         Assert.assertTrue(result);
     }
@@ -47,7 +47,7 @@ public class ChatClientsHashMapTest {
     @Test
     public void testContainsUser_abc_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex", "", 0));
+        chatClients.addUser(new ChatClient("Jack", "", 0));
 
         Assert.assertFalse(chatClients.containsUser("abc"));
     }
@@ -55,9 +55,9 @@ public class ChatClientsHashMapTest {
     @Test
     public void testGetUser_Alex_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex", "", 0));
+        chatClients.addUser(new ChatClient("Jack", "", 0));
 
-        ChatClient chatClient = chatClients.getUser("Alex");
+        ChatClient chatClient = chatClients.getUser("Jack");
 
         Assert.assertNotNull(chatClient);
     }
@@ -65,7 +65,7 @@ public class ChatClientsHashMapTest {
     @Test
     public void testGetUser_abc_TrueReturned() throws Exception {
         ChatInterface chatClients = new ChatClientsHashMap();
-        chatClients.addUser(new ChatClient("Alex", "", 0));
+        chatClients.addUser(new ChatClient("Jack", "", 0));
 
         ChatClient chatClient = chatClients.getUser("abc");
 

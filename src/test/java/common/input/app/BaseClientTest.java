@@ -1,6 +1,7 @@
-package client.app;
+package common.input.app;
 
 import client.Client;
+import client.app.BaseClient;
 import client.sender.MessageSender;
 import common.enums.CommandMessages;
 import common.json.bodymessage.BodyMessage;
@@ -31,7 +32,7 @@ public class BaseClientTest {
     public void testStart() throws Exception {
         when(streamIO.read()).thenReturn(CommandMessages.EXIT.getTextCommand());
         when(messageSender.sendMessage(any(BodyMessage.class))).thenReturn(true);
-        Client client = new BaseClient(60001, messageSender, streamIO, listener);
+        Client client = new BaseClient(59989, messageSender, streamIO, listener);
 
         client.start();
 
@@ -42,9 +43,9 @@ public class BaseClientTest {
 
     @Test
     public void testLogin() throws Exception {
-        Client client = new BaseClient(60001, messageSender, streamIO, listener);
+        Client client = new BaseClient(59989, messageSender, streamIO, listener);
 
-        client.login("Alex");
+        client.login("Jack");
 
         verify(messageSender).sendMessage(any(BodyMessage.class));
     }
@@ -52,7 +53,7 @@ public class BaseClientTest {
     @Test
     public void testLogoutAndStop() throws Exception {
         when(messageSender.sendMessage(any(BodyMessage.class))).thenReturn(true);
-        Client client = new BaseClient(60001, messageSender, streamIO, listener);
+        Client client = new BaseClient(59989, messageSender, streamIO, listener);
 
         client.logoutAndStop();
 
@@ -63,7 +64,7 @@ public class BaseClientTest {
     @Test
     public void testSendMessage() throws Exception {
         when(messageSender.sendMessage(any(BodyMessage.class))).thenReturn(true);
-        Client client = new BaseClient(60001, messageSender, streamIO, listener);
+        Client client = new BaseClient(59989, messageSender, streamIO, listener);
 
         client.sendMessage("test");
 

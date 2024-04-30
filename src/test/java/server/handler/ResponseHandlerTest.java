@@ -19,7 +19,7 @@ public class ResponseHandlerTest {
     @Test
     //in this test we should create TransportConnection and invoke send(String text) method with using BodyMessage - class parameters
     public void testHandle() throws Exception {
-        BodyMessage bodyMessage = MessageFactory.createBodyMessage("EXIT","Alex","Bay","127.0.0.1",0);
+        BodyMessage bodyMessage = MessageFactory.createBodyMessage("EXIT","Jack","Bye","127.0.0.1",0);
         TransportFactory transportFactory = mock(TransportFactory.class);
         TransportConnection transportConnection = mock(TransportConnection.class);
         when(transportFactory.createConnection(bodyMessage.getIp(),
@@ -35,7 +35,7 @@ public class ResponseHandlerTest {
     @Test
     //If there is a connection error with the user, the user must be removed from the list
     public void testHandle_Exception() throws Exception {
-        BodyMessage bodyMessage = MessageFactory.createBodyMessage("EXIT","Alex","Bay","127.0.0.1",0);
+        BodyMessage bodyMessage = MessageFactory.createBodyMessage("EXIT","Jack","Bye","127.0.0.1",0);
         TransportFactory transportFactory = new TcpSocketTransportFactory();
 
         ChatInterface chatClients = mock(ChatInterface.class);

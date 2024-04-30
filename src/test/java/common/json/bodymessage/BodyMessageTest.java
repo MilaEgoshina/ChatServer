@@ -22,9 +22,9 @@ public class BodyMessageTest {
 
     @Test
     public void testSetGetNickName() throws Exception {
-        bodyMessage.setNickname("Alex");
+        bodyMessage.setNickname("Jack");
 
-        Assert.assertEquals(bodyMessage.getNickname(), "Alex");
+        Assert.assertEquals(bodyMessage.getNickname(), "Jack");
     }
 
     @Test
@@ -43,8 +43,8 @@ public class BodyMessageTest {
 
     @Test
     public void testSetGetPort() throws Exception {
-        bodyMessage.setIp("60000");
+        bodyMessage.setIp("59990");
 
-        Assert.assertEquals(bodyMessage.getIp(), "60000");
+        Assert.assertEquals(bodyMessage.getIp(), "59990");
     }
 }

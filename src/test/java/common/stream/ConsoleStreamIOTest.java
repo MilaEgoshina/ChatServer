@@ -30,12 +30,12 @@ public class ConsoleStreamIOTest {
 
     @Test
     public void testRead() throws Exception {
-        ByteArrayInputStream in = new ByteArrayInputStream(("60000").getBytes());
+        ByteArrayInputStream in = new ByteArrayInputStream(("59990").getBytes());
         System.setIn(in);
         StreamIO streamIO = new ConsoleStreamIO(new Scanner((System.in)), System.out);
 
         String result = streamIO.read();
 
-        Assert.assertEquals(result, "60000");
+        Assert.assertEquals(result, "59990");
     }
 }
