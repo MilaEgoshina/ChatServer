@@ -4,13 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class - validator for checking layouts
+ * The ListValidation class implements the ValidatorInterface to validate a list of validators.
  */
 public class ListValidation implements ValidatorInterface{
 
     private List<ValidatorInterface> listValidator = new ArrayList<>();
 
-
+    /**
+     * Validates each validator in the list.
+     * @return true if all validators pass, false if any validator fails
+     */
     @Override
     public boolean validate() {
 
@@ -25,14 +28,16 @@ public class ListValidation implements ValidatorInterface{
 
     /**
      * Add new type of validator to common list
-     * @param validator new validator
+     * @param validator the validator to add
      */
     public void add(ValidatorInterface validator){
         this.listValidator.add(validator);
     }
 
+
     /**
-     * Remove validator from the common list
+     * Removes a validator from the list at the specified index.
+     * @param index the index of the validator to remove
      */
     public void remove(int index){
 
@@ -40,7 +45,8 @@ public class ListValidation implements ValidatorInterface{
     }
 
     /**
-     * Get the number of validators in common list
+     * Returns the number of validators in the list.
+     * @return the size of the validator list
      */
     public int size(){
 

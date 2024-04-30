@@ -1,8 +1,7 @@
 package common.enums;
 
-
 /**
- * Status of request processing
+ * The Status enum represents the possible statuses of an operation.
  */
 public enum Status {
 

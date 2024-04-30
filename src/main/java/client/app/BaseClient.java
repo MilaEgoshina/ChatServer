@@ -11,7 +11,7 @@ import common.stream.StreamIO;
 import java.io.IOException;
 
 /**
- * Implementation of base client class
+ * The BaseClient class implements the Client interface and represents a basic client working with a chat application.
  */
 public class BaseClient implements Client {
 
@@ -20,11 +20,18 @@ public class BaseClient implements Client {
     MessageSender messageSender;
     boolean stopped = false; // indicator of whether client is working or not
 
-
     //parameters of current client
     int clientPort;
     String nickname;
 
+    /**
+     * Constructs a BaseClient with the specified client port, message sender, stream IO, and listener.
+     *
+     * @param clientPort the port number of the client
+     * @param messageSender the message sender for sending messages
+     * @param streamIO the stream IO interface for input-output processing
+     * @param listener the listener for input messages from the thread
+     */
     public BaseClient(int clientPort, MessageSender messageSender, StreamIO streamIO, Listener listener) {
         this.clientPort = clientPort;
         this.messageSender = messageSender;
@@ -33,7 +40,7 @@ public class BaseClient implements Client {
     }
 
     /**
-     * Start work of client
+     * Starts the work of the client, including setting up the listener and reading user input.
      */
     @Override
     public void start() {
@@ -60,9 +67,11 @@ public class BaseClient implements Client {
     }
 
     /**
-     * Method for authorization
-     * @param nickname for user authorization
-     * @return true if authorization was successful
+     * Logs in with the specified nickname and client port.
+     *
+     * @param nickname the nickname of the client
+     * @return true if the login is successful, false otherwise
+     * @throws IOException if an error occurs during login
      */
     @Override
     public boolean login(String nickname) throws IOException {
@@ -74,7 +83,8 @@ public class BaseClient implements Client {
     }
 
     /**
-     * Method for log out from chat and close it
+     * Logs out and stops the client by sending an exit command and interrupting the listener.
+     * @throws IOException if an error occurs during logout
      */
     @Override
     public void logoutAndStop() throws IOException {
@@ -85,8 +95,9 @@ public class BaseClient implements Client {
     }
 
     /**
-     * Method for sending message by client
-     * @param message from client
+     * Sends a message to the server with the client's nickname and message content.
+     * @param message the message content to send
+     * @throws IOException if an error occurs during message sending
      */
     @Override
     public void sendMessage(String message) throws IOException {
@@ -97,8 +108,9 @@ public class BaseClient implements Client {
     }
 
     /**
-     * Method for sending a message as an object by the client
-     * @param bodyMessage message as an object
+     * Sends a body message to the server.
+     * @param bodyMessage the body message to send
+     * @throws IOException if an error occurs during message sending
      */
     private void sendBodyMessage(BodyMessage bodyMessage) throws IOException{
 

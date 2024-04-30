@@ -4,7 +4,7 @@
 
 Общие команды для обеспечения работы сервера и клиента. Содержит:
 
-1.	**Пакет command:**
+## Пакет command:
 
 **Интерфейсы:**
 
@@ -311,7 +311,10 @@ private ServerSocket serverSocket;
 
 private String encoding;
 ```
-В методе `TransportConnection accept() throws IOException` возвращается объект типа TransportConnection, так как мы устанавливаем соединение с клиентом на сокете, в котором сервер ожидает (принимает) подключение.
+Метод `TransportConnection accept() throws IOException` принимает соединение на прослушивателе и создает новое соединение TcpSocketTransportConnection для связи.
+
+
+* **TcpSocketTransportFactory implements TransportFactory**  - класс реализует интерфейс TransportFactory для создания прослушивателей и соединений TCP-сокетов.
 
 
 ## Пакет validate:
@@ -329,7 +332,7 @@ private String encoding;
 protected String value;
 ```
 
-•	**IpValidator extends BaseValidator implements ValidatorInterface** - проверка IP на корректность ввода
+•	**IpValidator extends BaseValidator implements ValidatorInterface** - проверка IP на корректность ввода. В классе реализуется метод `boolean validate()`, который проверяет значение IP-адреса с использованием шаблона регулярного выражения.
 
 
 •	**ListValidation implements ValidatorInterface** - компоновка проверок и проверка как единое
@@ -338,9 +341,9 @@ protected String value;
 
 `private List<ValidatorInterface> listValidator = new ArrayList<>();`
 
-Используется в классе ValidatorFactory в методе `ValidatorInterface getPortValidation(String value, int minPort, int maxPort, Boolean withValidationIsUsed, TransportFactory transportFactory)`, где мы добавляем в лист валидации все остальные классы – валидаторы, а это проверка на то, что порт является целым числом, находится в нужном диапозоне и не занят другими соединениями.
+Данный класс используется в классе ValidatorFactory в методе `ValidatorInterface getPortValidation(String value, int minPort, int maxPort, Boolean withValidationIsUsed, TransportFactory transportFactory)`, где мы добавляем в лист валидации все остальные классы – валидаторы, которые представляют собой проверки на то, что порт является целым числом, находится в нужном диапазоне и не занят другими соединениями.
 
-•	**NotUsedPortsValidator extends BaseValidator implements ValidatorInterface** – класс для проверки порта на занятость. 
+•	**NotUsedPortsValidator extends BaseValidator implements ValidatorInterface** – класс проверяет, не используется ли порт, путем создания прослушивателя.
 
 Поля:
 
@@ -362,7 +365,7 @@ private int max;
 
 •	**ValidateIntegerNumber extends BaseValidator implements ValidatorInterface** – класс для проверки на целое неотрицательное число длиной от 4 до 5 сиволов
 
-•	**ValidatorFactory** - класс – фабрика для создания элементов проверки.
+•	**ValidatorFactory** - класс – фабрика, который предоставляет статические методы для создания экземпляров различных валидаторов.
 
 Один из важных методов в этом классе – метод `static ValidatorInterface getPortValidation(String value, int minPort, int maxPort, Boolean withValidationIsUsed, TransportFactory transportFactory)`
 

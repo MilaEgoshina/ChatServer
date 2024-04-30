@@ -15,12 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 
+/**
+ * The BaseBotWorker class implements the BotWorker interface for managing bots in the chat application.
+ */
 public class BaseBotWorker implements BotWorker{
 
     private StreamIO streamIO;
     private TransportFactory transportFactory;
     List<Client> clients;
 
+    /**
+     * Constructs a BaseBotWorker with the specified StreamIO and TransportFactory.
+     * @param streamIO the StreamIO object for input-output processing
+     * @param transportFactory the TransportFactory object for creating connections
+     */
     public BaseBotWorker(StreamIO streamIO, TransportFactory transportFactory) {
         this.streamIO = streamIO;
         this.transportFactory = transportFactory;
@@ -28,12 +36,13 @@ public class BaseBotWorker implements BotWorker{
     }
 
     /**
-     * Add countBot bots to the server ipServer:portServer in the intervalConnect
-     * @param ipServer
-     * @param portServer
-     * @param startPort
-     * @param countBot
-     * @param intervalCount
+     * Add bots to the server with specified parameters.
+     *
+     * @param ipServer the IP address of the server
+     * @param portServer the port number of the server
+     * @param startPort the starting port number for bots
+     * @param countBot the number of bots to add
+     * @param intervalCount the interval between adding bots
      */
     @Override
     public void addBots(String ipServer, int portServer, int startPort, int countBot, int intervalCount) {
@@ -65,9 +74,10 @@ public class BaseBotWorker implements BotWorker{
     }
 
     /**
-     * Timer triggers users to send messages every intervalConnect milliseconds for timerSendMessage milliseconds
-     * @param timerSendMessage
-     * @param intervalSend
+     * Start sending messages with a specified timer and interval for sending messages.
+     *
+     * @param timerSendMessage the timer for sending messages
+     * @param intervalSend the interval between message sends
      */
     @Override
     public void startSendMessage(int timerSendMessage, int intervalSend) {
@@ -84,7 +94,8 @@ public class BaseBotWorker implements BotWorker{
     }
 
     /**
-     * Delete bots, each one leaves the chat after intervalExit milliseconds
+     * Remove bots from the server at a specified interval.
+     * @param intervalExit the interval for removing bots
      */
     @Override
     public void removeBots(int intervalExit) {

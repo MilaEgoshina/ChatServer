@@ -3,9 +3,8 @@ package common.validate;
 import lombok.AllArgsConstructor;
 
 /**
- * Base class for value-based validations
+ * The BaseValidator class is an abstract class that provides base functionality for validators.
  */
-
 @AllArgsConstructor
 public abstract class BaseValidator {
 

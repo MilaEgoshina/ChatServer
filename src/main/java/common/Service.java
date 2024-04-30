@@ -4,14 +4,12 @@ package common;
 import lombok.Getter;
 
 /**
- * Class for working with properties file and configuration
+ * The Service class provides configuration properties and settings for the application.
  */
 @Getter
 public class Service extends BaseService<Service> {
 
-
     private static Service instance;
-
     private String helloMessageForAll;
     private String goodbyeMessageForAll;
     private String lineSeparator;
@@ -25,6 +23,9 @@ public class Service extends BaseService<Service> {
     private final String encoding = "UTF-8";
 
 
+    /**
+     * Initializes the Service with configuration properties from a file.
+     */
     private Service(){
         super("src/main/resources/config.properties");
 
@@ -37,6 +38,10 @@ public class Service extends BaseService<Service> {
         this.lineSeparator = properties.getProperty("lineSeparator");
     }
 
+    /**
+     * Returns the singleton instance of the Service class.
+     * @return the instance of the Service class
+     */
     public static Service getInstance(){
 
         if(instance == null)

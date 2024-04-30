@@ -9,16 +9,24 @@ import common.transport.TransportFactory;
 import java.io.IOException;
 
 /**
- * Incoming message listener class
+ * The BaseClientListener is a subclass of BaseListener that handles the communication with clients in the chat application.
  */
 public class BaseClientListener extends BaseListener implements Listener {
 
+    /**
+     * Constructs a BaseClientListener with the specified input port, StreamIO, and TransportFactory.
+     *
+     * @param portIn the input port number to listen for incoming connections
+     * @param streamIO the StreamIO object for handling input and output streams
+     * @param transportFactory the TransportFactory object for creating a listener
+     */
     public BaseClientListener(int portIn, StreamIO streamIO, TransportFactory transportFactory) {
         super(portIn, streamIO, transportFactory);
     }
 
     /**
-     * Listen and receive messages
+     * Continuously waits for incoming messages from clients, prints the message, and closes the connection.
+     * @throws IOException if an error occurs while receiving or handling the message
      */
     @Override
     protected void worker() throws IOException {
