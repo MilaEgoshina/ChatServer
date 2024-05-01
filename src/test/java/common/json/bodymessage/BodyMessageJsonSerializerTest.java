@@ -1,7 +1,9 @@
 package common.json.bodymessage;
 
-import common.json.serializer.JsonSerializer;
-import common.json.serializer.MessageFactory;
+import com.example.common.json.bodymessage.BodyMessage;
+import com.example.common.json.bodymessage.BodyMessageJsonSerializer;
+import com.example.common.json.serializer.JsonSerializer;
+import com.example.common.json.serializer.MessageFactory;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;

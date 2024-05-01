@@ -1,6 +1,7 @@
 package bot;
 
-import client.Client;
+import com.example.bot.BotTimerTask;
+import com.example.client.Client;
 import junit.framework.Assert;
 import org.junit.Test;
 

@@ -1,12 +1,12 @@
 package common.input.app;
 
-import client.Client;
-import client.app.BaseClient;
-import client.sender.MessageSender;
-import common.enums.CommandMessages;
-import common.json.bodymessage.BodyMessage;
-import common.listener.Listener;
-import common.stream.StreamIO;
+import com.example.client.Client;
+import com.example.client.app.BaseClient;
+import com.example.client.sender.MessageSender;
+import com.example.common.enums.CommandMessages;
+import com.example.common.json.bodymessage.BodyMessage;
+import com.example.common.listener.Listener;
+import com.example.common.stream.StreamIO;
 import org.junit.Before;
 import org.junit.Test;
 

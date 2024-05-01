@@ -1,5 +1,7 @@
 package server.lastmessages;
 
+import com.example.server.lastmessages.CircularFifoBufferLastMessages;
+import com.example.server.lastmessages.LastMessages;
 import junit.framework.Assert;
 import org.junit.Test;
 

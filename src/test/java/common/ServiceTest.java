@@ -1,5 +1,6 @@
 package common;
 
+import com.example.common.Service;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;

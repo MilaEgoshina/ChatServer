@@ -1,5 +1,6 @@
 package common.command;
 
+import com.example.common.command.*;
 import junit.framework.Assert;
 import org.junit.Test;
 

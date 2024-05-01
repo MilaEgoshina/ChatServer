@@ -1,9 +1,10 @@
 package common.input;
 
-import common.stream.ConsoleStreamIO;
-import common.stream.StreamIO;
-import common.transport.TransportFactory;
-import common.transport.tcp.TcpSocketTransportFactory;
+import com.example.common.input.InputWorker;
+import com.example.common.stream.ConsoleStreamIO;
+import com.example.common.stream.StreamIO;
+import com.example.common.transport.TransportFactory;
+import com.example.common.transport.tcp.TcpSocketTransportFactory;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;

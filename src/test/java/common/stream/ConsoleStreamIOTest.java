@@ -1,5 +1,7 @@
 package common.stream;
 
+import com.example.common.stream.ConsoleStreamIO;
+import com.example.common.stream.StreamIO;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Test;

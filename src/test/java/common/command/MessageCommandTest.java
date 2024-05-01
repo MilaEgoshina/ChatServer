@@ -1,10 +1,13 @@
 package common.command;
 
-import common.json.bodymessage.BodyMessage;
+import com.example.common.command.Command;
+import com.example.common.command.CommandFactory;
+import com.example.common.command.CommandsInterface;
+import com.example.common.json.bodymessage.BodyMessage;
 import junit.framework.Assert;
 import org.junit.Test;
-import server.client.ChatInterface;
-import server.sender.MessageSender;
+import com.example.server.client.ChatInterface;
+import com.example.server.sender.MessageSender;
 
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;

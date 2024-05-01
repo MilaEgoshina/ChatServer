@@ -1,11 +1,12 @@
 package server.app;
 
-import common.enums.CommandMessages;
-import common.stream.StreamIO;
-import common.transport.TransportFactory;
-import common.transport.tcp.TcpSocketTransportFactory;
+import com.example.server.app.BaseServer;
+import com.example.common.enums.CommandMessages;
+import com.example.common.stream.StreamIO;
+import com.example.common.transport.TransportFactory;
+import com.example.common.transport.tcp.TcpSocketTransportFactory;
 import org.junit.Test;
-import server.Server;
+import com.example.server.Server;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

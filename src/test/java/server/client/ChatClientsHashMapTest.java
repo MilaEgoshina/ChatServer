@@ -1,5 +1,8 @@
 package server.client;
 
+import com.example.server.client.ChatClient;
+import com.example.server.client.ChatClientsHashMap;
+import com.example.server.client.ChatInterface;
 import junit.framework.Assert;
 import org.junit.Test;
 

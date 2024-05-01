@@ -1,14 +1,16 @@
 package server.sender;
 
-import common.json.bodymessage.BodyMessage;
+import com.example.server.sender.MessageSender;
+import com.example.server.sender.SimpleMessageSender;
+import com.example.common.json.bodymessage.BodyMessage;
 import junit.framework.Assert;
 import org.junit.Test;
-import server.client.ChatClient;
-import server.client.ChatClientsHashMap;
-import server.client.ChatInterface;
-import server.handler.MessageQueue;
-import server.lastmessages.CircularFifoBufferLastMessages;
-import server.lastmessages.LastMessages;
+import com.example.server.client.ChatClient;
+import com.example.server.client.ChatClientsHashMap;
+import com.example.server.client.ChatInterface;
+import com.example.server.handler.MessageQueue;
+import com.example.server.lastmessages.CircularFifoBufferLastMessages;
+import com.example.server.lastmessages.LastMessages;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;

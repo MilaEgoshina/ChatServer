@@ -1,14 +1,16 @@
 package server.handler;
 
-import common.Service;
-import common.json.bodymessage.BodyMessage;
-import common.json.serializer.MessageFactory;
-import common.transport.TransportConnection;
-import common.transport.TransportFactory;
-import common.transport.tcp.TcpSocketTransportFactory;
+import com.example.server.handler.MessageHandler;
+import com.example.server.handler.ResponseHandler;
+import com.example.common.Service;
+import com.example.common.json.bodymessage.BodyMessage;
+import com.example.common.json.serializer.MessageFactory;
+import com.example.common.transport.TransportConnection;
+import com.example.common.transport.TransportFactory;
+import com.example.common.transport.tcp.TcpSocketTransportFactory;
 import org.junit.Test;
-import server.client.ChatClientsHashMap;
-import server.client.ChatInterface;
+import com.example.server.client.ChatClientsHashMap;
+import com.example.server.client.ChatInterface;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;

@@ -1,12 +1,12 @@
 package common.input.app;
 
-import client.app.BaseClientListener;
-import common.Service;
-import common.listener.Listener;
-import common.stream.StreamIO;
-import common.transport.TransportConnection;
-import common.transport.TransportFactory;
-import common.transport.TransportListener;
+import com.example.client.app.BaseClientListener;
+import com.example.common.Service;
+import com.example.common.listener.Listener;
+import com.example.common.stream.StreamIO;
+import com.example.common.transport.TransportConnection;
+import com.example.common.transport.TransportFactory;
+import com.example.common.transport.TransportListener;
 import org.junit.Test;
 
 import static org.mockito.Mockito.*;

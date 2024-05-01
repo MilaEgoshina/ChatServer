@@ -1,5 +1,6 @@
 package common.json.bodymessage;
 
+import com.example.common.json.bodymessage.BodyMessage;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;

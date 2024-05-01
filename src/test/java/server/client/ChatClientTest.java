@@ -1,5 +1,6 @@
 package server.client;
 
+import com.example.server.client.ChatClient;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;

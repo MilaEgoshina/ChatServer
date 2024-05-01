@@ -1,10 +1,12 @@
 package server.handler;
 
-import common.command.Command;
-import common.command.CommandsInterface;
-import common.enums.Status;
-import common.json.bodymessage.BodyMessage;
-import common.transport.TransportConnection;
+import com.example.server.handler.MessageHandler;
+import com.example.server.handler.RequestHandler;
+import com.example.common.command.Command;
+import com.example.common.command.CommandsInterface;
+import com.example.common.enums.Status;
+import com.example.common.json.bodymessage.BodyMessage;
+import com.example.common.transport.TransportConnection;
 import org.junit.Test;
 
 import static org.mockito.ArgumentMatchers.any;

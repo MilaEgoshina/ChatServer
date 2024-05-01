@@ -1,9 +1,11 @@
 package common.transport.tcp;
 
-import common.Service;
-import common.transport.TransportConnection;
-import common.transport.TransportFactory;
-import common.transport.TransportListener;
+import com.example.common.Service;
+import com.example.common.transport.TransportConnection;
+import com.example.common.transport.TransportFactory;
+import com.example.common.transport.TransportListener;
+import com.example.common.transport.tcp.TcpSocketTransportConnection;
+import com.example.common.transport.tcp.TcpSocketTransportFactory;
 import junit.framework.Assert;
 import org.junit.After;
 import org.junit.Before;
