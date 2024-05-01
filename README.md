@@ -58,7 +58,9 @@ This program depends on Java version 11 or higher. If you notice that this softw
 
 ## Documentation
 
-Please, if you want to see the full documentation on English for this project, download docs package and open [index.html](https://github.com/MilaEgoshina/pet-registry-system/blob/main/docs/index.html) file. Or you can observe the full documentation on Russian using [this link](https://github.com/MilaEgoshina/ChatServer/blob/main/docs/ru/index.md).
+Please, if you want to see the full documentation on English for this project, download **docs/eng** package and open [index.html](https://github.com/MilaEgoshina/ChatServer/blob/main/docs/eng/index.html) file. Or you can observe the full documentation on Russian using [this link](https://github.com/MilaEgoshina/ChatServer/blob/main/docs/ru/index.md).
+
+![docs](images/docs.jpg)
 
 ## Running the tests
 
