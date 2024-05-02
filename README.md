@@ -58,7 +58,7 @@ This program depends on Java version 11 or higher. If you notice that this softw
 
 ## Documentation
 
-Please, if you want to see the full documentation on English for this project, download **docs/eng** package and open [index.html](https://github.com/MilaEgoshina/ChatServer/blob/main/docs/eng/index.html) file. Or you can observe the full documentation on Russian using [this link](https://github.com/MilaEgoshina/ChatServer/blob/main/docs_ru/index.md).
+Please, if you want to see the full documentation on English for this project, just open this [link](https://milaegoshina.github.io/ChatServer/) file. Or you can observe the full documentation on Russian using [this link](https://github.com/MilaEgoshina/ChatServer/blob/main/docs_ru/index.md).
 
 ![docs](images/docs.jpg)
 
