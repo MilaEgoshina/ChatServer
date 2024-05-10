@@ -1,4 +1,4 @@
-### Multi-user chat built on multi-threaded code
+### Multi-user client/server chat built on multi-threaded code
 
 This project is a multi-user chat application that allows users to connect to a server, send messages to each other, and execute commands. The chat is built on multi-threaded code, using TCP sockets for communication between clients and the server.
 
